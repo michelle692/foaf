@@ -36,3 +36,77 @@
     transform: rotate(360deg);
   }
 }
+
+.barriecito-regular {
+  font-family: "Barriecito", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.mallanna-regular {
+  font-family: "Mallanna", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.branding {
+  color: #116EB7;
+}
+
+.branding:hover {
+  color: #056838;
+}
+
+.default-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.home {
+  background-color: #F2EE63;
+
+  h1 {
+    font-size: 8em;
+    margin-bottom: 0em;
+  }
+
+  p {
+    font-size: 1.5em;
+  }
+}
+
+.sign-up {
+  color: white;
+  background-color: #056838;
+}
+
+.navbar {
+  li {
+    list-style: none;
+    font-size: 1.25em;
+  }
+}
+
+.event-container {
+  border: 1px solid white;
+  border-radius: 12px;
+  padding: 1em 2em;
+  max-width: 30vw;
+
+  p {
+    line-height: 1.7em;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: underline;
+}
