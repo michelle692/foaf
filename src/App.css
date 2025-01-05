@@ -2,41 +2,7 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
+/* fonts */
 .barriecito-regular {
   font-family: "Barriecito", serif;
   font-weight: 400;
@@ -49,14 +15,22 @@
   font-style: normal;
 }
 
-.branding {
-  color: #116EB7;
+.fragment-mono-regular {
+  font-family: "Fragment Mono", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
-.branding:hover {
-  color: #056838;
+.branding-text {
+  font-family: "Modak", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 7em;
+  z-index: -1;
+  fill: #116EB7;
 }
 
+/* default styles */
 .default-container {
   height: 100vh;
   display: flex;
@@ -66,8 +40,9 @@
   gap: 1em;
 }
 
+/* homepage */
 .home {
-  background-color: #F2EE63;
+  background-color: #F4F3DE;
 
   h1 {
     font-size: 8em;
@@ -79,34 +54,88 @@
   }
 }
 
-.upcoming-events {
-  color: white;
-  background-color: #056838;
-}
+/* navbar styles */
 
 .navbar {
-  li {
-    list-style: none;
-    font-size: 1.25em;
+  position: fixed;
+  top: .75vh;
+  margin-right: 4em;
+}
+
+.navbar > li {
+  background-color: transparent;
+  z-index: 1;
+  display: inline-block;
+  margin-right: .75em;
+  list-style: none;
+}
+
+.navbar li {
+  a {
+    text-decoration: none;
+    color: #2D2424;
+    background-color: white;
+    padding: 7px 10px;
+    border-radius: 20px;
+  }
+
+  a:hover {
+    background-color: #2D2424;
+    cursor: pointer;
+    color: white;
   }
 }
 
-.event-container {
-  border: 1px solid white;
+/* events modal styling */
+.modal-container {
+  height: max-content;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+
+  .close-btn {
+    background-color: transparent;
+    border: .5px solid #2D2424;
+    border-radius: 25px;
+    font-size: 20px;
+    align-self: flex-end;
+  }
+}
+
+.upcoming-events-modal {
+  background-color: white;
+  color: #2D2424;
+}
+
+.event-item {
   border-radius: 12px;
   padding: 1em 2em;
-  max-width: 30vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    font-size: 4em;
+    margin: 0;
+    z-index: 0;
+  }
 
   p {
     line-height: 1.7em;
+    font-size: 20px;
+    max-width: 75%;
+  }
+
+  .signup-button {
+    width: 50%;
+    border: 1px solid #2D2424;
+    padding: 10px 0px;
+    text-decoration: none;
+    color: #2D2424;
   }
 }
 
-a {
-  text-decoration: none;
-  color: black;
-}
-
-a:hover {
-  text-decoration: underline;
-}
+/* event page styling */
