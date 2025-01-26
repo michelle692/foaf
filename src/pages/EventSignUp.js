@@ -8,6 +8,7 @@ import thumbnail from '../images/hakuji_thumbnail.png';
 import { IconCalendarEventFilled } from '@tabler/icons-react';
 import { IconClock } from '@tabler/icons-react';
 import { IconMapPin } from '@tabler/icons-react';
+import { IconArrowUpRight } from '@tabler/icons-react';
 
 function EventSignUp() {
     const { key } = useParams();
@@ -28,7 +29,7 @@ function EventSignUp() {
           year: "numeric",
           month: "long",
           day: "numeric",
-        });
+        }).toUpperCase();
       }
 
     return (
@@ -49,11 +50,11 @@ function EventSignUp() {
                     </div>
                     <div className="event-details fragment-mono-regular"> 
                         <IconClock />
-                        <p> {event.eventTime} </p> 
+                        <p> {event.eventTime} </p> {/* TODO: MIGHT NEED TO FORMAT THIS WHEN RETRIEVING FROM DB */}
                     </div>
                     <div className="event-details fragment-mono-regular"> 
                         <IconMapPin />
-                        <p> {event.eventLocation} </p> 
+                        <a href={event.locationLink} target="blank"> {event.eventLocation} </a> <IconArrowUpRight />
                     </div>
                 </div>
 
