@@ -45,15 +45,15 @@ function EventSignUp() {
 
                 <div style={{width: '100%', marginTop: '-1em'}}>
                     <div className="event-details fragment-mono-regular">
-                        <IconCalendarEventFilled />
+                        <IconCalendarEventFilled style={{ marginLeft: '0.5em'}}/>
                         <p> {formatDate(event.eventDate)} </p> 
                     </div>
                     <div className="event-details fragment-mono-regular"> 
-                        <IconClock />
+                        <IconClock style={{ marginLeft: '0.5em'}}/>
                         <p> {event.eventTime} </p> {/* TODO: MIGHT NEED TO FORMAT THIS WHEN RETRIEVING FROM DB */}
                     </div>
                     <div className="event-details fragment-mono-regular"> 
-                        <IconMapPin />
+                        <IconMapPin style={{ marginLeft: '0.5em'}}/>
                         <a href={event.locationLink} target="blank"> {event.eventLocation} </a> <IconArrowUpRight />
                     </div>
                 </div>

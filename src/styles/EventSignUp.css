@@ -53,7 +53,7 @@ p, label {
     border: .5px solid white;
     width: 100%;
     text-align: left;
-    padding: .5em 0 .5em .5em;
+    padding: .5em 0;
     display: flex;
     align-items: center;
     gap: .5em;
@@ -80,7 +80,7 @@ input {
     color: white;
 }
 
-/* temporary -- delete this later */
+/* temporary -- delete this later when button component is done */
 .submit-button {
     margin-top: 1em;
     border: none;
