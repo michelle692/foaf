@@ -8,6 +8,7 @@ export const eventList = [
         eventLocation: 'JL. KEMANG I NO. 12H',
         locationLink: '',
         entryFee: 'IDR 250.000,-',
+        thumbnailPath: '../images/hakuji_thumbnail.png'
     },
 
     // {

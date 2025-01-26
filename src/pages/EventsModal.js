@@ -1,6 +1,8 @@
 import React from "react";
 import { eventList } from "../tempSrcData/events";
 
+import '../styles/EventsModal.css';
+
 function EventsModal({ isOpen, onClose, children }) {
 
     if (!isOpen) return null;
