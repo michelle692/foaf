@@ -1,0 +1,29 @@
+.navbar {
+    position: fixed;
+    top: .75vh;
+    margin-right: 4em;
+}
+
+.navbar > li {
+    background-color: transparent;
+    z-index: 1;
+    display: inline-block;
+    margin-right: .75em;
+    list-style: none;
+}
+
+.navbar li {
+    a {
+        text-decoration: none;
+        color: #2D2424;
+        background-color: white;
+        padding: 7px 10px;
+        border-radius: 20px;
+    }
+
+    a:hover {
+        background-color: #2D2424;
+        cursor: pointer;
+        color: white;
+    }
+}

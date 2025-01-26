@@ -3,6 +3,8 @@ import { useState } from "react";
 import ReactCurvedText from "react-curved-text";
 
 import EventsModal from "./EventsModal";
+import '../styles/Navbar.css';
+import '../styles/EventsModal.css';
 
 const BrandText = () => {
   return (
