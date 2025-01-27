@@ -13,10 +13,10 @@ export const eventList = [
 
     // {
     //     key: 2,
-    //     eventName: 'FOAF Singles Event',
+    //     eventName: 'SINGLES EVENT',
     //     eventDescription: 'Coffee tasting pop-up with featuring Friend of a Friend OG drinks.',
     //     eventDate: '02-14-2025',
-    //     eventTime: '15:00',
+    //     eventTime: '15:00 WIB',
     //     eventLocation: 'JL. KEMANG I NO. 12H',
     //     locationLink: '',
     //     entryFee: 'IDR 175.000,-',
