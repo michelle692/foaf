@@ -10,7 +10,8 @@
     "react-curved-text": "^3.0.1",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.1.1",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "react-spinners": "^0.15.0"
   },
   "scripts": {
     "start": "react-scripts start",

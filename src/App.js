@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Routes, Route  } from 'react-router-dom'
 import Home from './pages/Home';
 import EventsModal from './pages/EventsModal'
 import EventSignUp from './pages/EventSignUp';
+import AdminLogin from './pages/AdminLogin';
+import EventAttendees from './pages/EventAttendees';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/events" element={<EventsModal />} />
           <Route path="/sign-up/:key" element={<EventSignUp />} />
+          <Route path="/admin" element={<AdminLogin />} />
+          <Route path="/admin/events" element={<EventAttendees />} />
         </Routes>
       </div>
     </Router>
