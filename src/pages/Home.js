@@ -4,7 +4,6 @@ import ReactCurvedText from "react-curved-text";
 
 import EventsModal from "./EventsModal";
 import '../styles/Navbar.css';
-import '../styles/EventsModal.css';
 
 const BrandText = () => {
   return (
@@ -18,7 +17,7 @@ const BrandText = () => {
       startOffset={285}
       reversed={true}
       text="FRIEND OF A FRIEND"
-      textProps={{ className: "branding-text"}}
+      textProps={{ className: "branding-text foaf"}}
     />
   )
 }

@@ -21,10 +21,20 @@
   font-style: normal;
 }
 
+.schibsted-grotesk {
+  font-family: "Schibsted Grotesk", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
 .branding-text {
   font-family: "Modak", serif;
   font-weight: 400;
   font-style: normal;
+}
+
+.foaf {
   font-size: 7em;
   z-index: -1;
   fill: #116EB7;

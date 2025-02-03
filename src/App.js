@@ -14,6 +14,7 @@ function App() {
         @import url('https://fonts.googleapis.com/css2?family=Mallanna&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Modak&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap');
       </style>
 
       <div className="App">

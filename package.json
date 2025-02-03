@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@tabler/icons-react": "^3.29.0",
     "cra-template": "1.2.0",
+    "firebase": "^11.2.0",
     "react": "^19.0.0",
     "react-curved-text": "^3.0.1",
     "react-dom": "^19.0.0",
