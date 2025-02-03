@@ -65,7 +65,7 @@ hr {
     width: 100%;
 }
 
-form {
+.signup-form form {
     display: flex;
     flex-direction: column;
     text-align: left;

@@ -4,6 +4,7 @@ import ReactCurvedText from "react-curved-text";
 
 import EventsModal from "./EventsModal";
 import '../styles/Navbar.css';
+import { IconUserCog } from "@tabler/icons-react";
 
 const BrandText = () => {
   return (
@@ -45,6 +46,8 @@ function Home() {
         </div>
 
         <EventsModal isOpen={eventsModalOpen} onClose={closeEventsModal} />
+
+        <a className="admin-login-button" href="/admin"> <IconUserCog size={25} /> </a>
 
       </div>
     );

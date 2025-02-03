@@ -3,7 +3,7 @@
     color: white
 }
 
-form {
+.admin-login form {
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -11,7 +11,7 @@ form {
     gap: 8px;
 }
 
-input {
+.admin-login input {
     background-color: rgba(255, 255, 255, 0.2);
     border: none;
     padding: 12px 7px;

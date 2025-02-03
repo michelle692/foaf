@@ -53,6 +53,7 @@
 /* homepage */
 .home {
   background-color: #F4F3DE;
+  padding: 0 1em;
 
   h1 {
     font-size: 8em;
@@ -61,5 +62,22 @@
 
   p {
     font-size: 1.5em;
+  }
+}
+
+.admin-login-button {
+  background-color: white;
+  color: #2D2424;
+  padding: .25em .45em;
+  border-radius: 30px;
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+  box-shadow: 0 1px 7px black;
+  
+  &:hover {
+    background-color: #2D2424;
+    cursor: pointer;
+    color: white;
   }
 }
