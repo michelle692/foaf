@@ -23,27 +23,25 @@ function SignupForm({ eventName }) {
             alert("Please fill out all fields.")
             return;
         }
-        
-        const collectionName = "events/" + eventName + "/attendees";
+
+        const attendeeCollection = collection(db, "events/" + eventName + "/attendees");
+
         try {
-            console.log(collectionName);
-            const docRef = await addDoc(collection(db, collectionName), {
+            const docRef = await addDoc((attendeeCollection), {
                 fname: fname,
                 lname: lname,
                 email: email,
             });
             
-            resetForm();
-            console.log("attendee added for event: " + eventName);
-            
-            alert("Thank you for signing up for " + eventName + "!");
+            resetForm();            
+            alert("Thank you for signing up for " + eventName + ". We'll see you there!");
             
             setTimeout(() => {
                 navigate('/');
             }, 1000);
 
         } catch (e) {
-            console.error("error adding attendee: " + fname + " " + lname + ". Reason: " + e);
+            alert("There was a server error. Please try again in a few minutes.");
         }
     }
 
@@ -79,7 +77,8 @@ function SignupForm({ eventName }) {
                     type="button" 
                     className="submit-button fragment-mono-regular" 
                     onClick={() => submitForm(fname, lname, email)} 
-                    value="SUBMIT" /> 
+                    value="SUBMIT" 
+                /> 
             </form>
         </>
     )

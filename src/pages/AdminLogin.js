@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import { handleAdminLogin } from "../firebase/admins";
 
 import '../styles/AdminLogin.css';
 
@@ -9,14 +10,24 @@ function AdminLogin() {
    const [password, setPassword] = useState('');
    const navigate = useNavigate();
 
-   const handleLogin = () => {
-      if (username === 'admin_user' && password === 'admin_password') {
-         localStorage.setItem('IsAdmin', 'true');
-         navigate('/admin/events');
-      } else {
-        alert('Invalid credentials');
+   function handleLogin(username, password) {
+
+      return async () => {
+         const loginStatus = await handleAdminLogin(username, password);
+         console.log(loginStatus)
+
+         if (loginStatus) {
+            navigate('/admin/events');
+         }
       }
-    };
+   }
+
+   useEffect(() => {
+      const userAdminStatus = localStorage.getItem('IsAdmin') === 'true';
+      if (userAdminStatus) {
+         navigate('/admin/events');
+      }
+   })
 
    return (
       <div className="admin-login default-container"> 
@@ -37,8 +48,10 @@ function AdminLogin() {
                type="button" 
                className="submit-button fragment-mono-regular" 
                value="LOG IN" 
-               onClick={handleLogin}/> 
+               onClick={handleLogin(username, password)}
+            /> 
          </form>
+         <a href="/"> back to home </a>
       </div>
    )
 }

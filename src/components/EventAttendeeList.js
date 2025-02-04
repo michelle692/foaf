@@ -57,18 +57,18 @@ function EventAttendeeList() {
     
                         {event.attendees.length > 0 ? 
                         (<table className="attendee-list schibsted-grotesk">
-                            <thead>
-                                <th> Full Name </th>
-                                <th> Email </th>
-                            </thead>
-                            {event.attendees.map(attendee => (
                             <tbody>
+                                <tr>
+                                    <th> Full Name </th>
+                                    <th> Email </th>
+                                </tr>
+                            {event.attendees.map(attendee => (
                                 <tr> 
                                     <td> {attendee.fname} {attendee.lname} </td>
                                     <td> {attendee.email} </td>
                                 </tr>
-                            </tbody>
                             ))}
+                            </tbody>
                         </table>) : 
                         (<p className="fragment-mono-regular"> No attendees yet. </p>)}
                     </div>
