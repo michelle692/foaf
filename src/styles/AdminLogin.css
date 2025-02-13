@@ -1,0 +1,37 @@
+.admin-login {
+    background-color: #2D2424;
+    color: white;
+}
+
+.admin-login form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 30%;
+    gap: 8px;
+}
+
+.admin-login input {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    padding: 12px 7px;
+    font-size: 16px;
+    color: white;
+    border-radius: 5px;
+}
+
+/* temporary --- delete later once button component is ready */
+.admin-login .submit-button {
+    margin-top: 1em;
+    border: none;
+    padding: 14px 0px;
+    text-decoration: none;
+    background-color: rgba(242, 238, 99, 1);
+    color: #2D2424;
+    font-weight: bold;
+    font-size: 1em;
+
+    &:hover {
+        cursor: pointer;
+    }
+}

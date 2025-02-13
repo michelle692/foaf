@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { eventList } from "../tempSrcData/events";
 
 import '../styles/EventSignUp.css';
-import thumbnail from '../images/hakuji_thumbnail.png';
+import thumbnail from '../images/hakuji_thumbnail.svg';
 import EventDetails from "../components/EventDetails";
 import SignupForm from "../components/SignupForm";
 
@@ -38,7 +38,7 @@ function EventSignUp() {
 
                 <hr />
 
-                <SignupForm />
+                <SignupForm eventName={event.eventName}/>
 
             </div>
         </div>

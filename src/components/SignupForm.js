@@ -1,13 +1,16 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { db } from "../firebase/firebase-config";
 import { addDoc, collection } from "firebase/firestore";
 
-function SignupForm({ title, labels }) {
+function SignupForm({ eventName }) {
 
     const [fname, setFName] = useState('');
     const [lname, setLName] = useState('');
     const [email, setEmail] = useState('');
+    const navigate = useNavigate();
+    
 
     function resetForm() {
         setFName('');
@@ -16,19 +19,29 @@ function SignupForm({ title, labels }) {
     }
 
     async function submitForm(fname, lname, email) {
-        console.log("submit form")
-        // add logic to submit to database
+        if (fname === '' || lname === '' || email === '') {
+            alert("Please fill out all fields.")
+            return;
+        }
+
+        const attendeeCollection = collection(db, "events/" + eventName + "/attendees");
+
         try {
-            const docRef = await addDoc(collection(db, "event-attendees"), {
+            const docRef = await addDoc((attendeeCollection), {
                 fname: fname,
                 lname: lname,
-                email: email
+                email: email,
             });
             
-            resetForm();
-            console.log("attendee added for: " + fname + " " + lname);
+            resetForm();            
+            alert("Thank you for signing up for " + eventName + ". We'll see you there!");
+            
+            setTimeout(() => {
+                navigate('/');
+            }, 1000);
+
         } catch (e) {
-            console.error("error adding attendee: " +fname + " " + lname);
+            alert("There was a server error. Please try again in a few minutes.");
         }
     }
 
@@ -60,10 +73,14 @@ function SignupForm({ title, labels }) {
                     onChange={(e) => setEmail(e.target.value)}
                     className="schibsted-grotesk"
                 />
-                <input type="button" className="submit-button fragment-mono-regular" onClick={() => submitForm(fname, lname, email)} value="SUBMIT" /> 
+                <input 
+                    type="button" 
+                    className="submit-button fragment-mono-regular" 
+                    onClick={() => submitForm(fname, lname, email)} 
+                    value="SUBMIT" 
+                /> 
             </form>
         </>
-
     )
 
 }
