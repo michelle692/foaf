@@ -1,23 +1,51 @@
-import { db } from "./firebase-config";
-import { doc, getDoc } from "firebase/firestore";
+import 
+{ 
+    getAuth, 
+    signInWithEmailAndPassword, 
+    signOut} 
+from "firebase/auth";
+
+import { db } from "../firebase/firebase-config";
+import { collection, query, where, doc, addDoc, getDocs } from "firebase/firestore";
 
 // Handle admin logins
-export async function handleAdminLogin(username, password) {
-    console.log("login attempt");
-    try {
-        const userDoc = await getDoc(doc(db, "admins", username));
+export async function handleAdminLogin(email, password) {
 
-        if(userDoc.exists()) {
-            if (userDoc.data().password === password) {
-                localStorage.setItem('IsAdmin', 'true');
-                return true;
-            }
-        } else {
-            alert('Invalid credentials');
-            return false;
+    const auth = getAuth();
+    try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+
+        const adminCollection = collection(db, "admins");
+        const queryResult = await getDocs(query(adminCollection, where("email", "==", user.email)));
+       
+        if (queryResult.empty) {
+            await addDoc(doc(db, "admins", email), {
+                email: email
+            })
         }
-    } catch (e) {
-        alert('There was an error logging in. Please try again.');
+
+        return true;
+
+    } catch (error) {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert('Invalid credentials.');
+        console.log(errorCode, errorMessage);
+
         return false;
     }
+}
+
+export function handleSignOut() {
+    const auth = getAuth();
+
+    signOut(auth).then(() => {
+        alert('You have successfully signed out.')
+    }).catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert('There was an error signing you out. Please try again.')
+        console.log("Error signing out: ", errorCode, errorMessage);
+    });
 }

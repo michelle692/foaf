@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import EventsModal from './pages/EventsModal'
 import EventSignUp from './pages/EventSignUp';
 import AdminLogin from './pages/AdminLogin';
+import ResetPassword from './pages/ResetPassword';
 import EventAttendees from './pages/EventAttendees';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/events" element={<EventsModal />} />
           <Route path="/sign-up/:key" element={<EventSignUp />} />
           <Route path="/admin" element={<AdminLogin />} />
+          <Route path="/admin/reset-password" element={<ResetPassword />} />
           <Route path="/admin/events" element={<EventAttendees />} />
         </Routes>
       </div>

@@ -27,7 +27,7 @@ function SignupForm({ eventName }) {
         const attendeeCollection = collection(db, "events/" + eventName + "/attendees");
 
         try {
-            const docRef = await addDoc((attendeeCollection), {
+            await addDoc((attendeeCollection), {
                 fname: fname,
                 lname: lname,
                 email: email,

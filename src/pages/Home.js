@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import ReactCurvedText from "react-curved-text";
 
+
 import EventsModal from "./EventsModal";
 import '../styles/Navbar.css';
 import { IconUserCog } from "@tabler/icons-react";
@@ -28,7 +29,6 @@ function Home() {
     const [eventsModalOpen, setEventsModalOpen] = useState(false);
     const openEventsModal = () => setEventsModalOpen(true);
     const closeEventsModal = () => setEventsModalOpen(false);
-
 
     return (
       <div className="default-container home">

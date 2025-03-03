@@ -1,42 +1,50 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { handleAdminLogin } from "../firebase/admins";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 import '../styles/AdminLogin.css';
 
 function AdminLogin() {
 
-   const [username, setUsername] = useState('');
+   const [email, setEmail] = useState('');
    const [password, setPassword] = useState('');
    const navigate = useNavigate();
+   const auth = getAuth();
 
-   function handleLogin(username, password) {
+   function handleLogin(email, password) {
+      if (email &&  password) {
+         return async () => {
+            const loginStatus = await handleAdminLogin(email, password);
 
-      return async () => {
-         const loginStatus = await handleAdminLogin(username, password);
-         console.log(loginStatus)
-
-         if (loginStatus) {
-            navigate('/admin/events');
+            if (loginStatus) {
+               navigate('/admin/events');
+            }
          }
       }
    }
 
    useEffect(() => {
-      const userAdminStatus = localStorage.getItem('IsAdmin') === 'true';
-      if (userAdminStatus) {
-         navigate('/admin/events');
-      }
-   })
+      const unsubscribe = onAuthStateChanged(auth, (user) => {
+         if (user) {
+            navigate('/admin/events');
+         }
+      });
+      
+      // clear listener
+      return () => unsubscribe();
+    }, [auth, navigate]);
 
    return (
       <div className="admin-login default-container"> 
+         <a href="/"> back to home </a>
+
          <h3 className="fragment-mono-regular"> Log in as an admin. </h3>
          <form className="login-form">
-            <label> Username: </label>
+            <label> Email: </label>
             <input 
                type="text" 
-               onChange={(e) => setUsername(e.target.value)} 
+               onChange={(e) => setEmail(e.target.value)} 
             />
 
             <label> Password: </label>
@@ -48,10 +56,10 @@ function AdminLogin() {
                type="button" 
                className="submit-button fragment-mono-regular" 
                value="LOG IN" 
-               onClick={handleLogin(username, password)}
+               onClick={handleLogin(email, password)}
             /> 
+
          </form>
-         <a href="/"> back to home </a>
       </div>
    )
 }

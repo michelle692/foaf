@@ -56,14 +56,14 @@ function EventAttendeeList() {
                         <hr style={{width: '100%' }}/>
     
                         {event.attendees.length > 0 ? 
-                        (<table className="attendee-list schibsted-grotesk">
+                        (<table key={event.id} className="attendee-list schibsted-grotesk">
                             <tbody>
                                 <tr>
                                     <th> Full Name </th>
                                     <th> Email </th>
                                 </tr>
                             {event.attendees.map(attendee => (
-                                <tr> 
+                                <tr key={attendee.id}> 
                                     <td> {attendee.fname} {attendee.lname} </td>
                                     <td> {attendee.email} </td>
                                 </tr>
