@@ -58,6 +58,8 @@ function AdminLogin() {
                value="LOG IN" 
                onClick={handleLogin(email, password)}
             /> 
+            
+            <a href="/admin/reset-password"> Forgot your password? </a>
 
          </form>
       </div>

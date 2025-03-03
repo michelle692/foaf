@@ -1,10 +1,4 @@
-import 
-{ 
-    getAuth, 
-    signInWithEmailAndPassword, 
-    signOut} 
-from "firebase/auth";
-
+import { getAuth, signInWithEmailAndPassword, signOut, confirmPasswordReset} from "firebase/auth";
 import { db } from "../firebase/firebase-config";
 import { collection, query, where, doc, addDoc, getDocs } from "firebase/firestore";
 
@@ -35,6 +29,29 @@ export async function handleAdminLogin(email, password) {
 
         return false;
     }
+}
+
+export async function handleResetPassword(email, newPassword, oobCode) {
+
+    const adminCollection = collection(db, "admins");
+    const queryResult = await getDocs(query(adminCollection, where("email", "==", email)));
+    
+    if (queryResult.empty) {
+        alert('This email is not associated with an admin account.');
+        return;
+    }
+    
+    const auth = getAuth();
+    try {
+        await confirmPasswordReset(auth, oobCode, newPassword);
+        alert('Password reset successful! We will now redirect you to the login page.');
+    } catch (error) {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert('There was an error resetting your password. Please try again.');
+        console.log(errorCode, errorMessage);
+    }
+
 }
 
 export function handleSignOut() {
